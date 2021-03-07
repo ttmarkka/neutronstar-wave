@@ -1,0 +1,68 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 
+\usepackage{jcappub}\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\newcommand{\eq}[1]{Eq. (\ref{#1})}
+\newcommand{\ee}[1]{\begin{equation}#1\end{equation}}
+\newcommand{\ea}[1]{\begin{align}#1\end{align}}
+\newcommand{\eg}[1]{\begin{gather}#1\end{gather}}
+\providecommand{\f}[2]{\frac{{#1}}{{#2}}}
+\def\hmax{\varphi_{\rm bar}}
+
+
+\newcommand{\B}[1]{{\color{blue} #1}}
+
+\title{Notes}
+\begin{document}
+
+\section{The model}
+The action
+%
+\ee{S=\int d^4x\,\sqrt{|g|}\bigg[\f{R}{2}\left({M_{\rm P}^2}+{\xi}\phi^2\right)-\f{1}{2}(\nabla\phi)^2-\f{1}{2}m^2\phi^2-\f{\lambda}{4}\phi^4\bigg]\,,\label{eq:act}}
+gives the equation of motion
+\ee{\left(-\Box+m^2-\xi R\right){\phi}+\lambda\phi^3=0\,.} 
+The scalar curvature at the location $\mathbf{r}$ given by a neutron star binary (with equal masses) we model as
+\ee{R=\f{\rho_0}{M_{\rm P}^2}\bigg(e^{-|\mathbf{r}-\mathbf{r}_1|^2/r_{\rm n}^2}+e^{-|\mathbf{r}-\mathbf{r}_2|^2/r_{\rm n}^2}\bigg)=\f{3 M}{4\pi r_{\rm n}^3M_{\rm P}^2}\bigg(e^{-|\mathbf{r}-\mathbf{r}_1|^2/r_{\rm n}^2}+e^{-|\mathbf{r}-\mathbf{r}_2|^2/r_{\rm n}^2}\bigg)\,,}
+where $\mathbf{r}_{1,2}$ are the locations of the neutron stars and $M$ and $r_{\rm n}$ are the mass and the radius. For the mass and radius we use
+\ee{M\approx 1.4M_{\odot}\approx 1.6\cdot 10^{57}{\rm GeV}\,,\qquad r_{\rm n}\approx 10^4{\rm m}\approx 5\cdot10^{19}({\rm GeV})^{-1}\,.}
+\section{Units}
+Assuming a space-time lattice, in Minkowski space the discretised d'Alembertian reads
+\ea{-\Box\phi&\approx\f{\phi(t+\Delta t)-2\phi(t)+\phi(t-\Delta t)}{\Delta t^2}-\sum_i\f{\phi(x_i+\Delta x)-2\phi(x_i)+\phi(x_i-\Delta x)}{\Delta x^2}%\nonumber\\&\equiv (\Delta t)^{-2}D_t\phi-(\Delta x)^{-2}\sum_iD_i\phi
+\,.}
+A convenient choice of lattice units is
+\ee{t = n_t\Delta t = n_t T_o\tilde{\Delta t}=T_o\tilde{t}\,,\qquad x_i = n_i\Delta x = n_i r_{\rm n}\tilde{\Delta x}=r_n\tilde{x}\,,}
+where $T_o$ is the orbital period ({\color{red}check!})
+\ee{T_o=2\pi\sqrt{\f{32\pi M_{\rm P}^2r_o^3}{M}}\,,}
+$r_{\rm n}$ the radius of the neutron star and $n_t,n_i,\tilde{\Delta t},\tilde{\Delta x}$ are dimensionless numbers. We choose a dimensionless $\tilde{\phi}$ as
+\ee{\phi=(T_o)^{-1}\tilde{\phi}\,,}
+allowing us to write the equation of motion as
+\ea{{\tilde{\phi}(n_t+1)-2\tilde{\phi}(n_t)+\tilde{\phi}(n_t-1)}&=\underbrace{\left(\f{\Delta t}{\Delta x}\right)^2}_{\equiv C}\sum_i\left[{\tilde{\phi}(n_i+1)-2\tilde{\phi}(n_i)+\tilde{\phi}(n_i-1)}\right]\nonumber \\&+\tilde{\Delta t}^2\bigg(-\tilde{m}^2\tilde{\phi}+\xi\tilde{R}\tilde{\phi}-\lambda \tilde{\phi}^3\bigg)\,,\label{eq:eom}}
+with the dimensionless scalar curvature
+\ee{\tilde{R}\equiv RT_o^2=\f{3 MT_o^2}{4\pi r_{\rm n}^3M_{\rm P}^2}\bigg(e^{-|\mathbf{r}-\mathbf{r}_1|^2/r_{\rm n}^2}+e^{-|\mathbf{r}-\mathbf{r}_2|^2/r_{\rm n}^2}\bigg)=\f{96\pi^2r_o^3}{r_{\rm n}^3}\bigg(e^{-|\mathbf{n}-\mathbf{n}_1|^2/n_{\rm n}^2}+e^{-|\mathbf{n}-\mathbf{n}_2|^2/n_{\rm n}^2}\bigg)\,,}
+where the location of star 1 is given by 
+\ea{\mathbf{r}_{1}&=\left({r}_{1,x},{r}_{1,y},{r}_{1,z}\right)=\bigg(r_o\sin\left(\f{2\pi t}{T_o}\right),r_o\cos\left(\f{2\pi t}{T_o}\right),0\bigg)\nonumber \\\Leftrightarrow\quad
+\mathbf{n}_{1}&=\left({n}_{1,x},{n}_{1,y},{n}_{1,z}\right)=\left(n_o\sin\left(2\pi \f{n_t}{n_{T_o}}\right),n_o\cos\left(2\pi \f{n_t}{n_{T_o}}\right),0\right)\,,}
+and similarly for star 2. The dimensionless mass is
+\ee{\tilde{m}^2= (T_om)^2=\frac{128 \pi ^3 m^2 {M_{\rm P}}^2 r_{o}^3}{M}\,.}
+\section{Bounday conditions \& initialization}
+The boundary conditions for $\phi$ we choose in the following manner: on the edges i.e. at $x,y,z = 0$ or $L$ where $L$ is our box size we set the field to vanish, $\phi(t,0)=\phi(t,L)=0$. Since the wave equation is second order in time derivatives we also need to specify the time derivative at some instant. For simplicity we choose the speed to vanish at the beginning (here $t=0$ for simplicity), $\dot{\phi}(t=0,\mathbf{x})=0$. For the discretized equation of motion (\ref{eq:eom}), this allows one to solve for the "phantom point" $\tilde{\phi}(n_t=-1)$ via
+\ee{\f{\tilde{\phi}(1)-\tilde{\phi}(-1)}{2\tilde{\Delta t}}=0\,.}
+
+At the start of the simulation we need the binary to contain a stationary distribution i.e. $\phi$ has to have relaxed into the minimum given by the potential $(1/2)(m^2-\xi R)\phi^2 +(\lambda/4)\phi^4$, surrounded by empty space. To give the field an initial kick we set $\phi(0,\mathbf{x})$ as white noise, for simplicity with positive values. Note that it is perfectly possible to have either star to have the field  relaxed in either vacuum, or even contain a domain wall. To force the system to relax we introduce a damping term $\propto \dot{\phi}$, discretely
+\ee{\propto\tilde{\Delta t}\left[\tilde{\phi}(n_t)-\tilde{\phi}(n_t-1)\right]\,,}
+on the right-hand side of the equation of motion which we switch off before the start of the rotation.
+\section{Energy}
+The energy-density, where $R$ taken is just a potential term, is 
+\ea{T_{00} &=\f12\bigg[\partial_\rho\phi\partial^\rho\phi+(m^2-\xi R)\phi^2+\f{\lambda}{2}\phi^4\bigg]+(\partial_t\phi)^2\nonumber\\ &=\f12\bigg[(\partial_t \phi)^2+\sum_i(\partial_i \phi)^2+(m^2-\xi R)\phi^2+\f{\lambda}{2}\phi^4\bigg] \,,}
+ and when discretised is conveniently given in units of $(T_o)^{-4}$ as
+\ea{T_{00} = (T_o)^{-4}\f12\bigg[&\bigg(\f{\tilde{\phi}(n_t+1)-\tilde{\phi}(n_t-1)}{2\tilde{\Delta t}}\bigg)^2+C\sum_i\bigg(\f{\tilde{\phi}(n_{i}+1)-\tilde{\phi}(n_i-1)}{2\tilde{\Delta t}}\bigg)^2\nonumber \\&+(\tilde{m}^2-\xi \tilde{R})\tilde{\phi}^2+\f{\lambda}{2}\phi^4\bigg]\equiv(T_o)^{-4} \tilde{T}_{00}\,.}
+The energy is then
+\ee{E=\int dxdydz\,T_{00}\approx(\Delta x)^3\sum_{i,j,k}T_{00}=\f{r_{\rm n}^3}{T_o^4}(\tilde{\Delta x})^3\sum_{i,j,k}\tilde{T}_{00}\equiv\f{r_{\rm n}^3}{T_o^4}\tilde{E}\,.}
+\section{Flux}
+Assuming a constant increase of particle density inside the box, we can write the flux straightforwardly if we know how the energy increases over time as
+\ee{f = \f{\Delta E}{\Delta t}  = \f{r_n^3}{T_o^5}\f{\Delta \tilde{E}}{\Delta \tilde{t}}\,.}
+The loss of energy after one orbit is then
+\ee{\Delta E = \f{r_n^3}{T_o^4}\f{\Delta \tilde{E}}{\Delta \tilde{t}}\,.}
+\end{document}
