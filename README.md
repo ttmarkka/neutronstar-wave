@@ -4,9 +4,7 @@ This code provides a PDE solver for the equation of motion of a self-interacting
  of a neutron star binary. The treatment is not fully relativistic, but
  implemented as a simple modification to the potential term by an exponential
  ansatz. See *derivation* for the precise definitions.
- <p align="center">
 ![](./gif/animated.gif)
-</p>
 
 ## Usage
 The script **Wave_3D_star.py** generates a set of four-dimensional grids
