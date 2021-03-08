@@ -6,8 +6,14 @@ This code provides a PDE solver for the equation of motion of a self-interacting
  ansatz. See *derivation* for the precise definitions.
 ![](./gif/animated.gif)
 
+## Dependencies
+
+Uses
+- numpy
+- matplotlib
+
 ## Usage
-The script **Wave_3D_star.py** generates a set of four-dimensional grids
+The script **Wave_3D_star.py** generates a set of three-dimensional grids
 and **NS_plot_3D.py** converts the grids to images. Gifs are easily produced for
 example with ImageMagick:
 
