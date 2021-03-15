@@ -4,6 +4,7 @@ This code provides a partial differential equation (PDE) solver for the equation
  of a neutron star binary. The treatment is not fully relativistic, but
  implemented as a simple modification to the potential term by an exponential
  ansatz. See *derivation* for the precise definitions.
+
 ![](./gif/animated.gif)
 
 ## Dependencies
