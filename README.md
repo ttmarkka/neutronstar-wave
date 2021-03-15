@@ -1,5 +1,5 @@
 # Scalar wave generation from a neutron star binary
-This code provides a PDE solver for the equation of motion of a self-interacting
+This code provides a partial differential equation (PDE) solver for the equation of motion of a self-interacting
  scalar field with a curvature coupling, where the spacetime curvature is that
  of a neutron star binary. The treatment is not fully relativistic, but
  implemented as a simple modification to the potential term by an exponential
